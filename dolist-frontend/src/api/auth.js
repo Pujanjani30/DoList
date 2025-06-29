@@ -1,7 +1,7 @@
 import fetchData from './fetchData.js'
 
 const login = async (data) => {
-  const response = await fetchData('http://localhost:3000/api/v1/auth/login', {
+  const response = await fetchData('/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -13,7 +13,7 @@ const login = async (data) => {
 }
 
 const signUp = async (data) => {
-  const response = await fetchData('http://localhost:3000/api/v1/auth/signup', {
+  const response = await fetchData('/auth/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ const signUp = async (data) => {
 }
 
 const logout = async () => {
-  const response = await fetchData('http://localhost:3000/api/v1/auth/logout', {
+  const response = await fetchData('/auth/logout', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ const logout = async () => {
 
 const getCurrentUser = async (setUser, setLoading) => {
   try {
-    const res = await fetchData('http://localhost:3000/api/v1/auth/me',
+    const res = await fetchData('/auth/me',
       { method: 'GET' }
     );
     if (res?.data) {
@@ -50,18 +50,18 @@ const getCurrentUser = async (setUser, setLoading) => {
   }
 };
 
-const refreshToken = async () => {
-  const res = await fetchData('http://localhost:3000/api/v1/auth/refresh-token', {
-    method: 'POST',
-  });
+// const refreshToken = async () => {
+//   const res = await fetchData('http://localhost:3000/api/v1/auth/refresh-token', {
+//     method: 'POST',
+//   });
 
-  return res;
-}
+//   return res;
+// }
 
 export {
   login,
   signUp,
   logout,
   getCurrentUser,
-  refreshToken
+  // refreshToken
 }

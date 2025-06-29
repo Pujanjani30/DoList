@@ -1,4 +1,6 @@
-export default async function fetchData(url, options = {
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api/v1';
+
+export default async function fetchData(endpoint, options = {
   method: 'GET',
   headers: { 'Content-Type': 'application/json' },
   credentials: 'include',
@@ -6,7 +8,7 @@ export default async function fetchData(url, options = {
 ) {
 
   try {
-    const response = await fetch(url, { ...options, credentials: 'include' });
+    const response = await fetch(`${BASE_URL}${endpoint}`, { ...options, credentials: 'include' });
 
     const jsonData = await response.json();
 

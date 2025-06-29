@@ -1,7 +1,7 @@
 import fetchData from './fetchData.js'
 
 const getTodos = async () => {
-  const response = await fetchData('http://localhost:3000/api/v1/todos', {
+  const response = await fetchData('/todos', {
     method: 'GET'
   })
 
@@ -9,7 +9,7 @@ const getTodos = async () => {
 }
 
 const addTodo = async (todo) => {
-  const response = await fetchData('http://localhost:3000/api/v1/todos/add', {
+  const response = await fetchData('/todos/add', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ const addTodo = async (todo) => {
 }
 
 const updateTodo = async (todoId, updatedTodo) => {
-  const response = await fetchData(`http://localhost:3000/api/v1/todos/update/${todoId}`, {
+  const response = await fetchData(`/todos/update/${todoId}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ const updateTodo = async (todoId, updatedTodo) => {
 }
 
 const completeTodo = async (todoId) => {
-  const response = await fetchData(`http://localhost:3000/api/v1/todos/complete/${todoId}`, {
+  const response = await fetchData(`/todos/complete/${todoId}`, {
     method: 'POST'
   })
 
@@ -41,7 +41,7 @@ const completeTodo = async (todoId) => {
 }
 
 const deleteTodo = async (todoId) => {
-  const response = await fetchData(`http://localhost:3000/api/v1/todos/delete/${todoId}`, {
+  const response = await fetchData(`/todos/delete/${todoId}`, {
     method: 'DELETE'
   })
 
