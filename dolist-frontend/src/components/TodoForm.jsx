@@ -4,7 +4,7 @@ import { showSuccessToast, showErrorToast } from '../utils/toast.js'
 
 function TodoForm() {
   const [todo, setTodo] = useState({ todo_title: '' });
-  const { setTodos, getTodos, addTodo, loading } = useTodo();
+  const { getTodos, addTodo, loading } = useTodo();
 
   const inputRef = useRef();
 
@@ -47,7 +47,7 @@ function TodoForm() {
         <input
           type='submit'
           value='Add'
-          disabled={todo.todo_title.length === 0 && loading}
+          disabled={loading && todo.todo_title.length === 0}
           className={`px-3 py-3 ms-3 text-xl text-white rounded-lg bg-[#C68EFD] 
             ${todo.todo_title.length === 0 ? 'cursor-not-allowed' : 'cursor-pointer'}`
           }
