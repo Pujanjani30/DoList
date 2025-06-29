@@ -1,5 +1,5 @@
 import Logo from '../assets/to-do-list.png'
-import SignUpForm from '../components/signUpForm'
+import SignUpForm from '../components/SignUpForm'
 
 function SignUp() {
   return (
