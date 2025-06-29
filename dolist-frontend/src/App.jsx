@@ -1,8 +1,8 @@
-import TodoContextProvider from './context/TodoContext'
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
 import { Home, Login, SignUp } from './pages'
 import ProtectedRoute from './components/ProtectedRoute'
 import AuthContextProvider from './context/AuthContext'
+import TodoContextProvider from './context/TodoContext'
 import { Toaster } from 'react-hot-toast'
 
 function App() {
