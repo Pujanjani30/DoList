@@ -1,5 +1,16 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(`${process.env.MONGO_URI}/${process.env.MONGO_DB_NAME}`)
-  .then(() => console.log('Connected to mongoDB...'))
-  .catch((error) => console.error('Error connecting to MongoDB:', error));
+const connectDB = async () => {
+  try {
+    await mongoose.connect(`${process.env.MONGO_URI}/${process.env.MONGO_DB_NAME}`, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('Connected to MongoDB...');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    process.exit(1); // Exit if DB connection fails
+  }
+};
+
+export default connectDB;

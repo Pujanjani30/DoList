@@ -5,8 +5,7 @@ import helmet from 'helmet';
 // import mongoSanitize from 'express-mongo-sanitize';
 import cookieParser from 'cookie-parser';
 
-import './config/db.config.js';
-
+import connectDB from './config/db.config.js';
 import createApi from './api/v1/index.js';
 
 const PORT = process.env.PORT || 3000;
@@ -45,8 +44,13 @@ app.use(/(.*)/, (req, res) => {
   res.status(404).send('404 Not found');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+const startServer = async () => {
+  await connectDB();
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+};
+
+startServer();
 
 export default app;
