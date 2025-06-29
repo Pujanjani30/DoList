@@ -1,4 +1,4 @@
-import TodoContextProvider from './context/todoContext'
+import TodoContextProvider from './context/TodoContext'
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
 import { Home, Login, SignUp } from './pages'
 import ProtectedRoute from './components/ProtectedRoute'
